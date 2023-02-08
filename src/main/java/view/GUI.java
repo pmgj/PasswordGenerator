@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
@@ -51,6 +52,12 @@ public class GUI {
         bStart.addActionListener(ev -> {
             var num = (Integer) sLength.getValue();
             PasswordGenerator pg = new LengthGenerator(num);
+            if (!cbSymbol.isSelected() && !cbNumber.isSelected() && !cbUppercase.isSelected()
+                    && !cbLowercase.isSelected()) {
+                JOptionPane.showMessageDialog(this.frame, "You must choose one option.", "Warning",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
             if (cbSymbol.isSelected()) {
                 pg = new SymbolDecorator(pg);
             } else if (cbNumber.isSelected()) {
