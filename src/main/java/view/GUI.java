@@ -53,6 +53,10 @@ public class GUI {
         panel.add(bStart);
         var out = new JTextField();
         panel.add(out);
+        // Map<JCheckBox, Class<? extends PasswordGenerator>> list = Map.of(cbSymbol,
+        // SymbolDecorator.class, cbNumber,
+        // NumberDecorator.class, cbUppercase, UpperCaseDecorator.class, cbLowercase,
+        // LowerCaseDecorator.class);
         bStart.addActionListener(ev -> {
             var num = (Integer) sLength.getValue();
             PasswordGenerator pg = new LengthGenerator(num);
@@ -62,6 +66,16 @@ public class GUI {
                         JOptionPane.WARNING_MESSAGE);
                 return;
             }
+            // for (JCheckBox jCheckBox : list.keySet()) {
+            // if (jCheckBox.isSelected()) {
+            // try {
+            // pg = list.get(jCheckBox).getConstructor(new PasswordGenerator[] { pg
+            // }).newInstance();
+            // } catch (Exception ex) {
+            // System.out.println(ex.getMessage());
+            // }
+            // }
+            // }
             if (cbSymbol.isSelected()) {
                 pg = new SymbolDecorator(pg);
             }
