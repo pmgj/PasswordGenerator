@@ -14,4 +14,9 @@ public class LengthGenerator implements PasswordGenerator {
         }
         return out.toString();
     }
+
+    @Override
+    public void setChange(boolean change) {
+
+    }
 }

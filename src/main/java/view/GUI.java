@@ -35,15 +35,19 @@ public class GUI {
         panel.add(sLength);
         panel.add(new JLabel("Include Symbols: "));
         var cbSymbol = new JCheckBox("( e.g. @#$% )");
+        cbSymbol.setSelected(true);
         panel.add(cbSymbol);
         panel.add(new JLabel("Include Numbers: "));
         var cbNumber = new JCheckBox("( e.g. 123456 )");
+        cbNumber.setSelected(true);
         panel.add(cbNumber);
         panel.add(new JLabel("Include Uppercase Characters: "));
         var cbUppercase = new JCheckBox("( e.g. ABCDEFGH )");
+        cbUppercase.setSelected(true);
         panel.add(cbUppercase);
         panel.add(new JLabel("Include Lowercase Characters: "));
         var cbLowercase = new JCheckBox("( e.g. abcdefgh )");
+        cbLowercase.setSelected(true);
         panel.add(cbLowercase);
         var bStart = new JButton("Your New Password: ");
         panel.add(bStart);
@@ -60,13 +64,17 @@ public class GUI {
             }
             if (cbSymbol.isSelected()) {
                 pg = new SymbolDecorator(pg);
-            } else if (cbNumber.isSelected()) {
+            }
+            if (cbNumber.isSelected()) {
                 pg = new NumberDecorator(pg);
-            } else if (cbUppercase.isSelected()) {
+            }
+            if (cbUppercase.isSelected()) {
                 pg = new UpperCaseDecorator(pg);
-            } else if (cbLowercase.isSelected()) {
+            }
+            if (cbLowercase.isSelected()) {
                 pg = new LowerCaseDecorator(pg);
             }
+            pg.setChange(true);
             out.setText(pg.execute());
         });
 
